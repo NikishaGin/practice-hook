@@ -1,21 +1,43 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {Accordion} from "./components/Accordion/Accordion";
-import {Rating} from "./components/Rating/Rating";
-import {ButtonOffOn} from "./components/ButtonOffOn/ButtonOffOn";
+import {Rating, RatingNumberType} from "./components/Rating/Rating";
+import {ButtonOnOf} from "./components/OnOf/OnOf";
+
 
 function App() {
+
+    let [ratingValue, setValue] = useState<RatingNumberType>(4)
+
     return (
         <div className="App">
-            <ButtonOffOn />
-            <ButtonOffOn />
-            <ButtonOffOn />
-            <Accordion titleValue={'Menu'}/>
-            <Rating/>
-
+            {/*<PageTitle title={"This is App component"}/>*/}
+            <Accordion titleValue1={'Menu'} titleValue2={'Users'} />
+            <Rating value={ratingValue} onClick={setValue}  />
+            <ButtonOnOf />
+            <ButtonOnOf />
+            <ButtonOnOf />
+            <ButtonOnOf />
+            <ButtonOnOf />
         </div>
     );
 }
+
+type PageTitleProps = {
+   title:string
+ }
+
+let PageTitle = (props: PageTitleProps) => {
+    return (
+        <h1>{props.title}</h1>
+    )
+}
+
+
+
+
+
+
 
 
 
